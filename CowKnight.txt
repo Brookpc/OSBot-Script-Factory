@@ -1,0 +1,23 @@
+<Script>Brookpc:Cow Knight:1.5
+<Description>Kills Chickens, looks like people
+<Cycle>150,600,100,250
+<Random Number>mousemove:1:5
+<Random Number>mousesleep:0:2
+[0, MyPlayer, isExists, {true}]
+[0, MyPlayer, isAnimating, {false}]
+[0, MyPlayer, getCurrentHealthPercent, 1:>, 2:20]
+[0, Variables, changeScriptState, 1:[Finding Cow...]]
+[1, NPC, isExists, {true}, 1:[Cow]]
+[1, MyPlayer, isAnimating, {false}]
+[1, NPC, isUnderAttack, {false}, 1:[Cow]]
+[1, NPC, getCurrentHealthPercent, 1:Cow, 2:0, 1:>]
+[1, Variables, changeScriptState, 1:[Attacking...]]
+[1, NPC, interactWith, 1:Cow, 1:Attack]
+[2, Variables, getRandomNumber, 1:mousemove, 1:==, 2:3]
+[2, Mouse, moveOutsideScreen]
+[3, Variables, getRandomNumber, 1:mousesleep, 1:==, 2:2]
+[3, Sleeping, sleepRandom, 2:8200, 2:17250]
+[4, Variables, getRandomNumber, 1:mousemove, 1:!=, 2:3]
+[4, Sleeping, sleepAnimating, 2:500, 2:500]
+[5, Variables, getRandomNumber, 1:mousesleep, 1:!=, 2:2]
+[5, Sleeping, sleepAnimating, 2:500, 2:500]
