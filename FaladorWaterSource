@@ -1,17 +1,17 @@
-<Script>Brookpc:Fally Water Source:0.85
+<Script>BPC:Spring Water:1.2
 <Boolean>buyorder:false
 <Boolean>sellOrder:false
 <Boolean>noMoreJugs:false
-<Area>bankFally:2943,3372,2947,3368,0
-<Area>waterPump:2949,3383,2951,3381,0
+<Area>bankZone:3254,3422,3251,3419,0
+<Area>waterSource:3235,3437,3241,3432,0
 <Area>grandExch:3161,3492,3168,3487,0
 <Random Number>waitFive:1:5
 [1, MyPlayer, isExists, {true}]
 [1, Variables, getBoolean, 1:noMoreJugs, 3:false]
-[1, MyPlayer, areaContainsPlayer, {false}, 2:2943, 2:3372, 2:2947, 2:3368, 2:0]
-[1, WalkTo, walkToArea, 2:2943, 2:3372, 2:2947, 2:3368, 2:0, 3:true, 3:false, 3:false]
+[1, MyPlayer, areaContainsPlayer, {false}, 2:3254, 2:3422, 2:3251, 2:3419, 2:0]
+[1, WalkTo, walkToArea, 2:3254, 2:3422, 2:3251, 2:3419, 2:0, 3:true, 3:false, 3:false]
 [1, Sleeping, sleepMoving]
-[2, MyPlayer, areaContainsPlayer, {true}, 2:2943, 2:3372, 2:2947, 2:3368, 2:0]
+[2, MyPlayer, areaContainsPlayer, {true}, 2:3254, 2:3422, 2:3251, 2:3419, 2:0]
 [2, Bank, open]
 [2, Sleeping, sleepMoving]
 [3, Variables, getRandomNumber, 1:waitFive, 1:==, 2:2]
@@ -26,15 +26,18 @@
 [5, Bank, contains, {true}, 1:Jug]
 [5, Bank, withdrawalAll, 1:[Jug]]
 [5, Sleeping, sleepRandom, 2:500, 2:1257]
+[5, Bank, close]
 [6, Bank, contains, {false}, 1:Jug]
 [6, Variables, editBoolean, 1:noMoreJugs, 3:true]
-[7, MyPlayer, areaContainsPlayer, {false}, 2:2949, 2:3383, 2:2951, 2:3381, 2:0]
-[7, WalkTo, walkToArea, 2:2949, 2:3383, 2:2951, 2:3381, 2:0, 3:true, 3:false, 3:false]
+[7, MyPlayer, areaContainsPlayer, {false}, 2:3235, 2:3437, 2:3241, 2:3432, 2:0]
+[7, WalkTo, walkToArea, 2:3235, 2:3437, 2:3241, 2:3432, 2:0, 3:true, 3:false, 3:false]
 [7, Sleeping, sleepMoving]
-[8, RS2Object, isExists, {true}, 1:[Waterpump]]
+[8, RS2Object, isExists, {true}, 1:[Fountain]]
+[8, MyPlayer, areaContainsPlayer, {true}, 2:3235, 2:3437, 2:3241, 2:3432, 2:0]
 [8, Inventory, interactWith, 1:Jug, 1:Use]
 [8, Sleeping, sleepRandom, 2:125, 2:652]
-[8, RS2Object, interactWith, 1:Waterpump, 1:Use]
+[8, RS2Object, interactWith, 1:Fountain, 1:Use]
+[8, Sleeping, sleepRandom, 2:1500, 2:3000]
 [9, Variables, getRandomNumber, 1:waitFive, 1:==, 2:1]
 [9, Mouse, moveOutsideScreen]
 [9, Sleeping, sleepAnimating, 2:1255, 2:750]
