@@ -1,4 +1,4 @@
-<Script>Brookpc:Fally Water Source:0.8
+<Script>Brookpc:Fally Water Source:0.85
 <Boolean>buyorder:false
 <Boolean>sellOrder:false
 <Boolean>noMoreJugs:false
@@ -26,7 +26,7 @@
 [5, Bank, contains, {true}, 1:Jug]
 [5, Bank, withdrawalAll, 1:[Jug]]
 [5, Sleeping, sleepRandom, 2:500, 2:1257]
-[6, Bank, getAmount, 1:Jug, 2:0, 1:==]
+[6, Bank, contains, {false}, 1:Jug]
 [6, Variables, editBoolean, 1:noMoreJugs, 3:true]
 [7, MyPlayer, areaContainsPlayer, {false}, 2:2949, 2:3383, 2:2951, 2:3381, 2:0]
 [7, WalkTo, walkToArea, 2:2949, 2:3383, 2:2951, 2:3381, 2:0, 3:true, 3:false, 3:false]
@@ -97,4 +97,4 @@
 [21, Inventory, contains, {true}, 1:Coins, 1:Jug]
 [21, Bank, open]
 [21, Bank, depositAll]
-[21, Variables, editBoolean, 1:noMoreJugs, 3:true]
+[21, Variables, editBoolean, 1:noMoreJugs, 3:false]
